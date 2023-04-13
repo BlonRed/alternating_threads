@@ -10,15 +10,22 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class AlternatingThreadsTests {
+class AlternatingThreadsTest {
 
+	private ByteArrayOutputStream outputStream;
 	final String s = System.lineSeparator();
+
+	void recordTextFromConsole() {
+		outputStream = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(outputStream));
+	}
 
 	@Test
 	void test1Run() {
 		WriteAndRead wr = new WriteAndRead();
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(outputStream));
+
+		recordTextFromConsole();
+
 		int number = 2;
 		String expectedOutput = "Old value: " + 0 + "\n" + "New value: " + 1 + "\n" + "Thread #1" + "\n" + s +
 				"Old value: " + 1 + "\n" + "New value: " + 2 + "\n" + "Thread #2" + "\n" + s;
@@ -110,8 +117,9 @@ class AlternatingThreadsTests {
 	@Test
 	void testThreadOneAndThreadTwo() {
 		WriteAndRead wr = new WriteAndRead();
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(outputStream));
+
+		recordTextFromConsole();
+
 		int number = 4;
 		String expectedOutput = "Old value: " + 0 + "\n" + "New value: " + 1 + "\n" + "Thread #1" + "\n" + s +
 				"Old value: " + 1 + "\n" + "New value: " + 2 + "\n" + "Thread #2" + "\n" + s +
