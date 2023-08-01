@@ -58,10 +58,10 @@ class AlternatingThreadsTest {
 	void test2Run() {
 		int number = 2;
 		ThreadWriteAndRead twar1 = new ThreadWriteAndRead("Thread #1", number, writeAndRead);
-		ThreadWriteAndRead twar = new ThreadWriteAndRead("Thread #2", number, writeAndRead);
+		ThreadWriteAndRead twar2 = new ThreadWriteAndRead("Thread #2", number, writeAndRead);
 		try {
 			twar1.thread.join();
-			twar.thread.join();
+			twar2.thread.join();
 		} catch (InterruptedException exc) {
 			System.out.println("Main thread interruption");
 		}
