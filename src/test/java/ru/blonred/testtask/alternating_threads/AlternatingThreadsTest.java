@@ -41,11 +41,11 @@ class AlternatingThreadsTest {
 		String expectedOutput = "Old value: " + 0 + "\n" + "New value: " + 1 + "\n" + "Thread #1" + "\n"  + "\n" +
 				"Old value: " + 1 + "\n" + "New value: " + 2 + "\n" + "Thread #2" + "\n" + "\n";
 
-		ThreadWriteAndRead twrob1 = new ThreadWriteAndRead("Thread #1", number, writeAndRead);
-		ThreadWriteAndRead twrob2 = new ThreadWriteAndRead("Thread #2", number, writeAndRead);
+		ThreadWriteAndRead twar1 = new ThreadWriteAndRead("Thread #1", number, writeAndRead);
+		ThreadWriteAndRead twar2 = new ThreadWriteAndRead("Thread #2", number, writeAndRead);
 		try {
-			twrob1.thread.join();
-			twrob2.thread.join();
+			twar1.thread.join();
+			twar2.thread.join();
 		} catch (InterruptedException exc) {
 			System.out.println("Main thread interruption");
 		}
@@ -57,11 +57,11 @@ class AlternatingThreadsTest {
 	@Test
 	void test2Run() {
 		int number = 2;
-		ThreadWriteAndRead twrob1 = new ThreadWriteAndRead("Thread #1", number, writeAndRead);
-		ThreadWriteAndRead twrob2 = new ThreadWriteAndRead("Thread #2", number, writeAndRead);
+		ThreadWriteAndRead twar1 = new ThreadWriteAndRead("Thread #1", number, writeAndRead);
+		ThreadWriteAndRead twar = new ThreadWriteAndRead("Thread #2", number, writeAndRead);
 		try {
-			twrob1.thread.join();
-			twrob2.thread.join();
+			twar1.thread.join();
+			twar.thread.join();
 		} catch (InterruptedException exc) {
 			System.out.println("Main thread interruption");
 		}
@@ -72,11 +72,11 @@ class AlternatingThreadsTest {
 	@Test
 	void test3Run() {
 		int number = 1;
-		ThreadWriteAndRead twrob1 = new ThreadWriteAndRead("Thread #1", number, writeAndRead);
-		ThreadWriteAndRead twrob2 = new ThreadWriteAndRead("Thread #2", number, writeAndRead);
+		ThreadWriteAndRead twar1 = new ThreadWriteAndRead("Thread #1", number, writeAndRead);
+		ThreadWriteAndRead twar2 = new ThreadWriteAndRead("Thread #2", number, writeAndRead);
 		try {
-			twrob1.thread.join();
-			twrob2.thread.join();
+			twar1.thread.join();
+			twar2.thread.join();
 		} catch (InterruptedException exc) {
 			System.out.println("Main thread interruption");
 		}
@@ -87,7 +87,7 @@ class AlternatingThreadsTest {
 	@Test
 	void test4Run() {
 		int number = 4;
-		ThreadWriteAndRead twrob1 = new ThreadWriteAndRead("Thread #1", number, writeAndRead);
+		new ThreadWriteAndRead("Thread #1", number, writeAndRead);
 
 		assertEquals("0", writeAndRead.readContent());
 	}
@@ -126,11 +126,11 @@ class AlternatingThreadsTest {
 				"Old value: " + 2 + "\n" + "New value: " + 3 + "\n" + "Thread #1" + "\n" + "\n" +
 				"Old value: " + 3 + "\n" + "New value: " + 4 + "\n" + "Thread #2" + "\n" + "\n";
 
-		ThreadWriteAndRead twrob1 = new ThreadWriteAndRead("Thread #1", number, writeAndRead);
-		ThreadWriteAndRead twrob2 = new ThreadWriteAndRead("Thread #2", number, writeAndRead);
+		ThreadWriteAndRead twar1 = new ThreadWriteAndRead("Thread #1", number, writeAndRead);
+		ThreadWriteAndRead twar2 = new ThreadWriteAndRead("Thread #2", number, writeAndRead);
 		try {
-			twrob1.thread.join();
-			twrob2.thread.join();
+			twar1.thread.join();
+			twar2.thread.join();
 		} catch (InterruptedException exc) {
 			System.out.println("Main thread interruption");
 		}
