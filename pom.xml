@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ru.blonred.test-task</groupId>
-	<artifactId>alternatingThreads</artifactId>
+	<artifactId>alternating_threads</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>alternatingThreads</name>
+	<name>alternating_threads</name>
 	<description>Console application alternating threads </description>
 	<properties>
 		<java.version>11</java.version>
